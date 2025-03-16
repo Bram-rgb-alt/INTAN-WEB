@@ -1,0 +1,303 @@
+/* penjelasan ada dibawah */
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Gaya Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #444444;
+  padding: 1rem;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.hide-nav {
+  transform: translateY(-100%);
+}
+
+.navbar-text {
+  color: white;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+  font-weight: bold;
+}
+
+/* Gaya Bagian */
+.section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(0, 0, 0); /* Setel warna teks default menjadi putih */
+}
+
+.section img {
+  max-width: 20%; /* Sesuaikan max-width menjadi 80% */
+  height: auto;
+  margin-top: 20px;
+  border: 10px solid rgb(255, 255, 255);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  animation: backlight 10s ease-in-out infinite;
+}
+
+.section:nth-child(odd) {
+  background-color: #000000;
+  color: #ff00a6;
+}
+
+.section:nth-child(odd) img {
+  margin-right: 700px;
+}
+
+.section:nth-child(even) {
+  background-color: #ffffff;
+  background: linear-gradient(
+    90deg,
+    rgb(10, 1, 138),
+    rgb(0, 0, 0),
+    rgb(174, 92, 255)
+  );
+  background-size: 200% 200%;
+  animation: light-saber 15s linear infinite;
+}
+
+.section:nth-child(even) img {
+  margin-left: 700px;
+}
+
+/* Gaya Kontainer Fitur */
+.fitur-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 10px;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  align-items: center;
+  flex-direction: column;
+  border: 10px solid #ccc;
+  padding: 20px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.fitur-container.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.fitur {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.fitur.ya {
+  background-color: #4caf50;
+  color: white;
+}
+
+.fitur.tidak {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Efek Blur */
+.blur {
+  filter: blur(5px);
+  transition: filter 0.5s ease;
+}
+
+.fitur-container:not(.hidden) ~ .section {
+  filter: blur(5px);
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Gaya Kontainer Ulang */
+.ulang-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  width: 400px; /* Sesuaikan lebar */
+  height: 400px; /* Sesuaikan tinggi */
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  background-image: url(/asset/intan7.jpg);
+  background-size: cover; /* Buat gambar latar menutupi kontainer */
+  background-position: center;
+  border: 10px solid #ccc; /* Hapus border */
+  box-shadow: none; /* Hapus box-shadow */
+}
+
+.ulang-container.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ulang-container p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.ulang-container .fitur {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.ulang-container .ulang-ya {
+  background-color: #4caf50;
+  color: white;
+}
+
+.ulang-container .ulang-tidak {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Gaya Teks Animasi */
+.animated-text {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 10s steps(90, end), blink-caret 10s step-end infinite,
+    neon-text 1s ease-in-out infinite alternate; /* Gunakan animasi neon-text */
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%; /* Sesuaikan menjadi 100% agar sesuai dengan teks */
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+@keyframes flowing-water {
+  0% {
+    color: rgb(255, 0, 212);
+    text-shadow: 0 0 5px rgb(255, 0, 212), 0 0 10px rgb(255, 0, 212),
+      0 0 15px rgb(255, 0, 212);
+  }
+  50% {
+    color: #0ff;
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+  }
+  100% {
+    color: rgb(255, 0, 212);
+    text-shadow: 0 0 5px rgb(255, 0, 212), 0 0 10px rgb(255, 0, 212),
+      0 0 15px rgb(255, 0, 212);
+  }
+}
+
+@keyframes neon-text {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #18ffec,
+      0 0 30px #18ffec, 0 0 40px #18ffec, 0 0 55px #18ffec, 0 0 75px #18ffec;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff49f9,
+      0 0 30px #ff49f9, 0 0 40px #ff49f9, 0 0 55px #ff49f9, 0 0 75px #ff49f9;
+  }
+}
+
+@keyframes light-saber {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes backlight {
+  25% {
+    box-shadow: 0 0 15px rgb(0, 255, 251);
+  }
+  50% {
+    box-shadow: 0 0 15px rgb(242, 255, 0);
+  }
+  75% {
+    box-shadow: 0 0 15px rgb(255, 0, 140);
+  }
+  100% {
+    box-shadow: 0 0 15px rgb(8, 0, 255);
+  }
+}
+
+/* 
+
+**CSS (intan.css):**
+
+* **Pengaturan Dasar:**
+    * Mengatur `font-family`, `margin`, dan `padding` untuk `body`.
+* **Navbar:**
+    * Membuat navbar tetap di atas layar dengan `position: fixed`.
+    * Memberi warna latar belakang gelap dan teks putih.
+    * Menambahkan efek bayangan neon pada teks navbar.
+    * Memberikan efek transisi dan `hide-nav` class untuk menyembunyikan navbar.
+* **Bagian (`.section`):**
+    * Mengatur tinggi setiap bagian menjadi 100vh (viewport height) untuk tampilan layar penuh.
+    * Menata elemen-elemen di dalam bagian secara vertikal dan horizontal.
+    * Memberi warna latar belakang yang berbeda untuk bagian ganjil dan genap.
+    * Memberikan efek animasi gradien pada bagian yang genap, seperti efek lightsaber.
+    * Mengatur style pada gambar, dan memberikan efek animasi cahaya pada gambar.
+    * Mengatur posisi gambar pada bagian ganjil dan genap.
+* **Kontainer Fitur (`.fitur-container`):**
+    * Membuat kontainer untuk tombol fitur (auto-scroll).
+    * Memposisikan kontainer di tengah layar.
+    * Memberi gaya pada tombol "Ya" dan "Tidak".
+    * Menambahkan efek blur pada bagian lain saat kontainer fitur aktif.
+    * Memberikan style pada container, dan memberikan efek blur pada section ketika container fitur aktif.
+* **Kontainer Ulang (`.ulang-container`):**
+    * Membuat kontainer untuk tombol ulang halaman.
+    * Memposisikan kontainer di tengah layar.
+    * Memberi gaya pada tombol "Iya" dan "Tidak".
+    * Menambahkan gambar latar belakang pada container ulang.
+    * Memberikan style pada container ulang.
+* **Teks Animasi (`.animated-text`):**
+    * Membuat animasi efek mengetik dan kursor berkedip.
+    * Menambahkan animasi efek neon pada teks.
+    * Membuat animasi neon text, dan animasi seperti air mengalir pada text.
+* **Animasi:**
+    * Berbagai animasi seperti `typing`, `blink-caret`, `flowing-water`, `neon-text`, `light-saber`, dan `backlight` untuk efek visual.
+    * Animasi animasi ini digunakan untuk memberikan efek efek menarik pada halaman web.
+
+Secara keseluruhan, CSS ini memberikan gaya visual yang menarik dan animasi pada halaman web, dengan fokus pada efek neon, gradien, dan interaksi pengguna. */
